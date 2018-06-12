@@ -1,6 +1,6 @@
 {
   "name": "react-gradient-container",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A multipurpose Container component with a progressive gradient interpolation",
   "main": "dist/ReactGradientContainer.js",
   "author": "Jose Munoz",
