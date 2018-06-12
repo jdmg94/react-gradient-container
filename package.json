@@ -6,6 +6,13 @@
   "author": "Jose Munoz",
   "license": "MIT",
   "private": false,
+  "keywords": [
+    "react",
+    "redux",
+    "gradient",
+    "container",
+    "presentational component"
+  ],
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack --mode development"
