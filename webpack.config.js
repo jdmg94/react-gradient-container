@@ -20,6 +20,8 @@ module.exports = {
   },
   entry: ['babel-polyfill', path.join(__dirname, "examples/src/index.js")],
   output: {
+    libraryTarget: 'umd',
+    library: 'react-gradient-container',
     path: path.join(__dirname, "examples/dist"),
     filename: "bundle.js"
   },

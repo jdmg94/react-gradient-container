@@ -61,5 +61,4 @@ typings/
 .next
 
 # dev output
-node_modules
 dist
