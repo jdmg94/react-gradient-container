@@ -1,19 +1,23 @@
 {
   "name": "react-gradient-container",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "a Multipurpose presentational gradient container",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/jdmg94/react-gradient-container",
   "author": "Jose Munoz",
   "license": "MIT",
   "private": false,
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "transpile": "babel src -d dist",
+    "transpile": "babel src -d dist --copy-files",
     "prepublishOnly": "npm run transpile",
     "build": "webpack --mode production",
     "deploy": "gh-pages -d examples/dist",
     "publish-demo": "npm run build && npm run deploy"
+  },
+  "peerDependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
