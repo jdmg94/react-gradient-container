@@ -1,9 +1,6 @@
 {
-  presets:['env', 'react'],
-  plugins:[
-    'transform-runtime',
-    'transform-react-jsx',
-    'transform-es2015-spread',
-    'syntax-object-rest-spread',
+  "presets": ["env", "react"],
+  "plugins": [
+    ["transform-object-rest-spread", { "useBuiltIns": true }]
   ]
 }
