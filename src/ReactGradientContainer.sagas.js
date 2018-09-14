@@ -1,8 +1,8 @@
 /*
 * @Author: JoseMunoz
 * @Date:   2018-06-10 10:01:51
-* @Last Modified by:   JoseMunoz
-* @Last Modified time: 2018-06-12 12:44:14
+ * @Last modified by:   JoseMunoz
+ * @Last modified time: 2018-09-14T13:57:54-06:00
 */
 import { map, chunk, nth, round } from 'lodash';
 import { detect } from 'detect-browser';
@@ -34,7 +34,7 @@ const interpolateColors = (step, colors = []) => {
   const [R, G, B] = map(start, (value, i) => {
     const nextValue = end[i] * step;
     const invertedValue = value * invertedStep;
-    return Math.round(invertedValue + nextValue);
+    return round(invertedValue + nextValue, 3);
   });
 
   return `rgb(${R}, ${G}, ${B})`;
@@ -45,16 +45,13 @@ const deriveGradient = (...colors) => {
   const browser = detect();
 
   switch (browser.name) {
+    case 'opera':
     case 'chrome': {
       return `-webkit-gradient(linear, left top, right bottom, from(${start}), to(${end}))`;
     }
 
     case 'firefox': {
       return `-moz-linear-gradient(to right bottom, ${start}, ${end})`;
-    }
-
-    case 'opera': {
-      return `-o-linear-gradient(to right bottom, ${start}, ${end})`;
     }
 
     default:

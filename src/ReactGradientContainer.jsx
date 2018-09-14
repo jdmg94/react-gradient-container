@@ -1,13 +1,13 @@
 /*
 * @Author: JoseMunoz
 * @Date:   2018-06-10 10:01:27
-* @Last Modified by:   JoseMunoz
-* @Last Modified time: 2018-06-10 22:33:28
+ * @Last modified by:   JoseMunoz
+ * @Last modified time: 2018-09-14T14:03:20-06:00
 */
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import React, { Component } from 'react';
-import { StyleSheet, css } from 'aphrodite';
 import * as actions from './ReactGradientContainer.ducks';
 
 const mergeProps = (stateProps, dispatchProps, ownProps) => ({
@@ -24,7 +24,7 @@ class GradientContainer extends Component {
   componentDidMount() {
     const { changeColor, setTask } = this.props;
 
-    const task = setInterval(changeColor, 100);
+    const task = setInterval(changeColor, 250);
     setTask(task);
   }
 
@@ -42,23 +42,20 @@ class GradientContainer extends Component {
       background,
     } = this.props;
 
-    const styles = StyleSheet.create({
-      GradientContainer: {
-        background,
-        overflow: 'hidden',
-        padding: '0.25rem',
-        margin: '0.5rem 1.5rem',
-        ...style,
-      },
-    });
+    const passedProps = {
+      style,
+      children,
+      className,
+    };
 
-    return (
-      <div
-        className={`${className} ${css(styles.GradientContainer)}`}
-      >
-        {children}
-      </div>
-    );
+    const GradientBackground = styled.div`
+      overflow: hidden;
+      padding: 0.25rem;
+      margin: 0.5rem 1.5rem;
+      background: ${background};
+    `;
+
+    return <GradientBackground {...passedProps} />;
   }
 }
 
