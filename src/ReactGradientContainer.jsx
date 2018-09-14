@@ -2,7 +2,7 @@
 * @Author: JoseMunoz
 * @Date:   2018-06-10 10:01:27
  * @Last modified by:   JoseMunoz
- * @Last modified time: 2018-09-14T13:50:42-06:00
+ * @Last modified time: 2018-09-14T14:03:20-06:00
 */
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -42,6 +42,12 @@ class GradientContainer extends Component {
       background,
     } = this.props;
 
+    const passedProps = {
+      style,
+      children,
+      className,
+    };
+
     const GradientBackground = styled.div`
       overflow: hidden;
       padding: 0.25rem;
@@ -49,16 +55,7 @@ class GradientContainer extends Component {
       background: ${background};
     `;
 
-    return (
-      <GradientBackground
-        {...{
-          style,
-          children,
-          className,
-        }}
-      />
-
-    );
+    return <GradientBackground {...passedProps} />;
   }
 }
 
