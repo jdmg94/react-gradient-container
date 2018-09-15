@@ -2,7 +2,7 @@
 * @Author: JoseMunoz
 * @Date:   2018-06-10 10:01:51
  * @Last modified by:   JoseMunoz
- * @Last modified time: 2018-09-15T15:24:51-06:00
+ * @Last modified time: 2018-09-15T17:07:16-06:00
 */
 import {
   nth,
@@ -26,7 +26,6 @@ import {
 
 import { interpolateColors } from '../utils/helpers';
 
-const colorLength = 6;
 const StepFromState = state => state.step;
 const ColorsFromState = state => state.colors;
 const TransitionIndicesFromState = state => state.colorIndices;
@@ -38,10 +37,10 @@ function* calculateNewIndices() {
     const colorIndices = yield select(TransitionIndicesFromState);
     const newIndices = map(colorIndices, (value, i) => {
       if (i % 2 !== 0) {
-        const baseZeroColorLength = colorLength - 1;
-        const seed = Math.random() * baseZeroColorLength;
+        const colorLength = 5;
+        const seed = Math.random() * colorLength;
         const nextValue = value + Math.floor(1 + seed);
-        return nextValue % colorLength;
+        return nextValue % (colorLength + 1);
       }
 
       return nth(colorIndices, i + 1);

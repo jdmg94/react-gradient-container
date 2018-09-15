@@ -2,7 +2,7 @@
 * @Author: JoseMunoz
 * @Date:   2018-07-16T13:06:58-06:00
  * @Last modified by:   JoseMunoz
- * @Last modified time: 2018-09-15T14:48:06-06:00
+ * @Last modified time: 2018-09-15T17:15:24-06:00
 */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -20,7 +20,7 @@ module.exports = {
     ],
   },
   entry: [
-    path.join(__dirname, 'examples/src/index.js'),
+    path.join(__dirname, 'examples/src/index.jsx'),
   ],
   output: {
     umdNamedDefine: true,

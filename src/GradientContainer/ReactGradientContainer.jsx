@@ -2,7 +2,7 @@
 * @Author: JoseMunoz
 * @Date:   2018-06-10 10:01:27
  * @Last modified by:   JoseMunoz
- * @Last modified time: 2018-09-15T15:26:22-06:00
+ * @Last modified time: 2018-09-15T17:25:06-06:00
 */
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -61,7 +61,8 @@ class GradientContainer extends Component {
       overflow: hidden;
       padding: 0.25rem;
       margin: 0.5rem 1.5rem;
-      background: linear-gradient(to left bottom, ${start}, ${end});
+      trantision: background 0.5s;
+      background: linear-gradient(to right bottom, ${start}, ${end});
     `;
 
     return <GradientBackground {...passedProps} />;

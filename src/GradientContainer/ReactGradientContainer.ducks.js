@@ -2,27 +2,16 @@
 * @Author: JoseMunoz
 * @Date:   2018-06-10 10:01:40
  * @Last modified by:   JoseMunoz
- * @Last modified time: 2018-09-15T15:07:14-06:00
+ * @Last modified time: 2018-09-15T17:04:29-06:00
 */
 import { round } from 'lodash';
 
 const initialState = {
-  // color table indices for:
-  // current color left
-  // next color left
-  // current color right
-  // next color right
-  colorIndices: [
-    0,
-    1,
-    2,
-    3,
-  ],
   step: 0,
   end: '',
   start: '',
-  currentTask: null,
   transitionSpeed: 0.005,
+  colorIndices: [0, 1, 2, 3],
   colors: [
   // R    G    B
     [62, 35, 255],
