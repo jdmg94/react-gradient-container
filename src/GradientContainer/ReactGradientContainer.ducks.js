@@ -2,7 +2,7 @@
 * @Author: JoseMunoz
 * @Date:   2018-06-10 10:01:40
  * @Last modified by:   JoseMunoz
- * @Last modified time: 2018-09-15T17:04:29-06:00
+ * @Last modified time: 2018-09-15T17:41:56-06:00
 */
 import { round } from 'lodash';
 
@@ -26,14 +26,20 @@ const initialState = {
 const SET_INDICES = 'jdmg94/ReactGradientContainer/SET_INDICES';
 const SET_COLORS = 'jdmg94/ReactGradientContainer/SET_COLORS';
 const CHANGE_COLOR = 'jdmg94/ReactGradientContainer/CHANGE_COLOR';
-const INCREASE_STEP = 'jdmg94/ReactGradientContainer/INCREASE_STEP';
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case SET_COLORS: {
       const { start, end } = payload;
+      const { step: prevStep, transitionSpeed } = state;
+      const step = round(prevStep + transitionSpeed, 3);
 
-      return { ...state, start, end };
+      return {
+        ...state,
+        end,
+        step,
+        start,
+      };
     }
 
     case SET_INDICES: {
@@ -45,13 +51,6 @@ const reducer = (state = initialState, { type, payload }) => {
       }
 
       return { ...state, colorIndices, step };
-    }
-
-    case INCREASE_STEP: {
-      const { step: prevStep, transitionSpeed } = state;
-      const step = round(prevStep + transitionSpeed, 3);
-
-      return { ...state, step };
     }
 
     case CHANGE_COLOR:
@@ -70,16 +69,13 @@ const setColors = (start, end) => ({
 });
 
 const changeColor = () => ({ type: CHANGE_COLOR });
-const increaseStep = () => ({ type: INCREASE_STEP });
 
 export default reducer;
 export {
   setColors,
   setIndices,
   changeColor,
-  increaseStep,
   SET_COLORS,
   SET_INDICES,
   CHANGE_COLOR,
-  INCREASE_STEP,
 };

@@ -2,29 +2,34 @@
  * @Author: JoseMunoz
  * @Date:   2018-09-15T15:14:12-06:00
  * @Last modified by:   JoseMunoz
- * @Last modified time: 2018-09-15T15:15:49-06:00
+ * @Last modified time: 2018-09-15T18:19:50-06:00
  */
-import { round, reduce } from 'lodash';
+import { round, map, toUpper } from 'lodash';
 
-const toHex = number => number.toString(16);
-const padHex = hex => (hex.length === 1 ? `0${hex}` : hex);
+const padHex = hex => {
+  const zeroesPadding = new Array(7 - hex.length).join('0');
 
-const interpolateColors = (step, colors = []) => {
+  return `${zeroesPadding}${hex}`;
+};
+
+export const RGBToHex = ([r, g, b]) => {
+  const bin = r << 16 | g << 8 | b; // eslint-disable-line
+  const rawHex = toUpper(bin.toString(16));
+
+  return padHex(rawHex);
+};
+
+export const interpolateColors = (step, colors = []) => {
   const [start, end] = colors;
   const invertedStep = round(1 - step, 3);
 
-  return reduce(start, (aggregator, value, i) => {
-    const nextValue = end[i] * step;
-    const invertedValue = value * invertedStep;
-    const componentValue = round(invertedValue + nextValue, 3);
-    const hexValue = toHex(componentValue);
+  const RGBData = map(start, (value, i) => {
+    const nextValue = round(end[i] * step, 3);
+    const invertedValue = round(value * invertedStep, 3);
+    const componentValue = round(invertedValue + nextValue, 0);
 
-    return `${aggregator}${padHex(hexValue)}`;
-  }, '#');
-};
+    return componentValue;
+  });
 
-export {
-  toHex,
-  padHex,
-  interpolateColors,
+  return RGBToHex(RGBData);
 };
