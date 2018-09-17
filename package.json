@@ -8,13 +8,13 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "start": "parcel start examples/src/index.html",
     "prepublishOnly": "yarn build",
+    "start": "parcel start examples/src/index.html --out-dir examples/dist",
     "build-example": "parcel build examples/src/index.html --out-dir examples/dist",
     "build": "parcel build src/index.jsx",
     "deploy": "gh-pages -d examples/dist",
     "publish-demo": "yarn build-example && yarn deploy",
-    "generate-source-map": "source-map-explorer --html ./dist/index.js ./dist/index.map > source-map.html"
+    "generate-source-map": "source-map-explorer --html ./dist/index.js ./dist/index.map > source-map.html && open source-map.html"
   },
   "peerDependencies": {
     "react": "^16.4.1"
