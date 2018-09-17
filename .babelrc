@@ -1,18 +1,8 @@
 {
-  "presets": [
-    "react",
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": ["last 2 versions"]
-        },
-        "modules": false
-      }
-    ]
-  ],
   "plugins": [
-    "transform-object-rest-spread",
-    "transform-runtime"
+    "lodash",
+    "@babel/transform-runtime",
+    "@babel/transform-regenerator",
+    "@babel/proposal-object-rest-spread"
   ]
 }
