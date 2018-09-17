@@ -1,19 +1,21 @@
 {
   "name": "react-gradient-container",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "a Multipurpose presentational gradient container",
   "main": "dist/index.js",
+  "homepage": "https://jdmg94.github.io/react-gradient-container",
   "repository": "https://github.com/jdmg94/react-gradient-container",
   "author": "Jose Munoz",
   "license": "MIT",
   "private": false,
   "scripts": {
+    "clean-example": "rm -rf examples/dist",
     "prepublishOnly": "yarn build",
-    "start": "parcel start examples/src/index.html --out-dir examples/dist",
-    "build-example": "parcel build examples/src/index.html --out-dir examples/dist",
+    "start": "parcel start examples/src/index.html --out-dir examples/dist --open",
+    "build-example": "parcel build examples/src/index.html --out-dir examples/dist --public-url ./",
     "build": "parcel build src/index.jsx --global react-gradient-container",
     "deploy": "gh-pages -d examples/dist",
-    "publish-demo": "yarn build-example && yarn deploy",
+    "publish-demo": "yarn clean-example && yarn build-example && yarn deploy",
     "generate-source-map": "source-map-explorer --html ./dist/index.js ./dist/index.map > source-map.html && open source-map.html"
   },
   "peerDependencies": {

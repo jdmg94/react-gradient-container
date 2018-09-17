@@ -1,6 +1,6 @@
 # React Gradient Container
 
-### Changelog v1.2.2
+### Changelog v1.2.3
 
 * Migrated to Babel 7, Parcel, and styled-components
 * 4x faster than previous version
@@ -14,19 +14,19 @@ This project follows the [ducks modular redux](https://github.com/erikras/ducks-
 ### Installation
 
   `npm install --save react-gradient-container`
-   
-   or 
-   
+
+   or
+
    `yarn add react-gradient-container`
 
 ### Usage
 
     import GradientContainer from 'react-gradient-container'
-    
+
     export default props => {
     	return <GradientContainer {...props} />
     }
-    
+
 ### Technical Debt
 
 * tests are pending
@@ -36,7 +36,3 @@ This project follows the [ducks modular redux](https://github.com/erikras/ducks-
 [MIT License](https://github.com/jdmg94/react-gradient-container/blob/master/LICENSE)
 
 Copyright (c) 2018 José David Muñoz
-
-
-    	
-
