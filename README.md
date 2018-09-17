@@ -1,10 +1,15 @@
 # React Gradient Container
 
-![React Gradient Container](http://g.recordit.co/44v9q8QT7b.gif)
+### Changelog v1.2.2
+
+* Migrated to Babel 7, Parcel, and styled-components
+* 4x faster than previous version
+* Opera compatibility bugfix
+* Code Cleanup
 
 ### About
 
-This project follows the [ducks modular redux](https://github.com/erikras/ducks-modular-redux) pattern and the airbnb code style, its a redux implementation of a progressive interpolated gradient, you can put any content within it and have it present over a moving gradient background, it is highly customizable and it has been tested on google chrome, firefox, safari, android and iOS.
+This project follows the [ducks modular redux](https://github.com/erikras/ducks-modular-redux) pattern and the airbnb code style, its a redux implementation of a progressive interpolated gradient, you can put any content within it and have it present over a moving gradient background, it is highly customizable and it has been tested on Chrome, Firefox, Safari, Opera, Android and iOS.
 
 ### Installation
 
@@ -16,20 +21,15 @@ This project follows the [ducks modular redux](https://github.com/erikras/ducks-
 
 ### Usage
 
-    import ReactGradientContainer from 'react-gradient-container'
+    import GradientContainer from 'react-gradient-container'
     
     export default props => {
-    	return (
-    		<ReactGradientContainer>
-    			{props.children}
-    		</ReactGradientContainer>
-    	)
+    	return <GradientContainer {...props} />
     }
     
 ### Technical Debt
 
 * tests are pending
-* expose initial colors for more customization options
 
 ### License
 
