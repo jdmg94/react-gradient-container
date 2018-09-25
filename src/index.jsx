@@ -17,14 +17,16 @@ const middleware = process.env.NODE_ENV === 'production'
   ? applyMiddleware(sagaMiddleware)
   : composeWithDevTools(applyMiddleware(sagaMiddleware));
 
-const store = createStore(reducer, middleware);
 
-sagaMiddleware.run(sagas);
+const ConnectedContainer = props => {
+  const store = createStore(reducer, middleware);
+  sagaMiddleware.run(sagas);
 
-const ConnectedContainer = props => (
-  <Provider store={store}>
-    <GradientContainer {...props} />
-  </Provider>
-);
+  return (
+    <Provider store={store}>
+      <GradientContainer {...props} />
+    </Provider>
+  );
+};
 
 export default ConnectedContainer;

@@ -5,6 +5,15 @@
   ],
   "extends": "airbnb",
   "rules": {
+    "no-else-return": "error",
+    "object-curly-spacing": [
+      "error",
+      "always",
+      {
+        "arraysInObjects": false,
+        "objectsInObjects": false
+      }
+    ],
     "arrow-parens": [
       "error",
       "as-needed"
