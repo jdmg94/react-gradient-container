@@ -1,11 +1,11 @@
 # React Gradient Container
 
-### Changelog v1.2.3
+### Changelog v1.2.4
 
-* Migrated to Babel 7, Parcel, and styled-components
-* 4x faster than previous version
-* Opera compatibility bugfix
+* Colors prop
 * Code Cleanup
+* Orientation prop
+* Component Encapsulation
 
 ### About
 
@@ -19,13 +19,20 @@ This project follows the [ducks modular redux](https://github.com/erikras/ducks-
 
    `yarn add react-gradient-container`
 
-### Usage
+### Usage	
 
     import GradientContainer from 'react-gradient-container'
 
     export default props => {
     	return <GradientContainer {...props} />
     }
+    
+  
+
+| Name   | Description | Default Value |
+|--------|-------------|:-------------:|
+| colors | The color values used to transition a gradient. It can be an array of hex values with or without has, or a vector of RGB values   | ```['3E23FF', '3CFF3C', 'FF2362', '2DAFE6', 'FF00FF']``` |
+| orientation | general direction of the gradient. The value can represent a pair of coordinate or a radial value expressed as a degree. | ```[ 'bottom', 'right' ]``` |
 
 ### Technical Debt
 

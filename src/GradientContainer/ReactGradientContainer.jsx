@@ -19,17 +19,29 @@ const mergeProps = (stateProps, dispatchProps, ownProps) => ({
 const mapStateToProps = state => ({
   end: state.end,
   start: state.start,
+  gradientOrientation: state.gradientOrientation,
 });
 
 class GradientContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      task: null,
+    };
   }
 
   componentDidMount() {
-    const { changeColor } = this.props;
+    const {
+      colors,
+      setColors,
+      changeColor,
+      orientation,
+      setOrientation,
+    } = this.props;
+
+    setColors(colors);
+    setOrientation(orientation);
 
     const task = setInterval(changeColor, 250);
 
@@ -49,6 +61,7 @@ class GradientContainer extends Component {
       style,
       children,
       className,
+      gradientOrientation,
     } = this.props;
 
     const passedProps = {
@@ -62,24 +75,51 @@ class GradientContainer extends Component {
       padding: 0.25rem;
       margin: 0.5rem 1.5rem;
       trantision: background 0.25s;
-      background: linear-gradient(to right bottom, #${start}, #${end});
+      background: linear-gradient(${gradientOrientation}, #${start}, #${end});
     `;
 
     return <GradientBackground {...passedProps} />;
   }
 }
 
+const orientations = [
+  'top',
+  'left',
+  'right',
+  'bottom',
+];
+
 GradientContainer.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  style: PropTypes.object,
   className: PropTypes.string,
   children: PropTypes.node.isRequired,
+  setColors: PropTypes.func.isRequired,
   changeColor: PropTypes.func.isRequired,
+  style: PropTypes.objectOf(PropTypes.string),
+  colors: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.number),
+  ])),
+  orientation: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.arrayOf(PropTypes.oneOf(orientations)),
+  ]),
 };
 
 GradientContainer.defaultProps = {
   style: {},
   className: '',
+  orientation: [
+    'bottom',
+    'right',
+  ],
+  colors: [
+  // R    G    B
+    [62, 35, 255],
+    [60, 255, 60],
+    [255, 35, 98],
+    [45, 175, 230],
+    [255, 0, 255],
+  ],
 };
 
 export default connect(mapStateToProps, actions, mergeProps)(GradientContainer);

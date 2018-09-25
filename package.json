@@ -9,13 +9,14 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "clean-example": "rm -rf examples/dist",
-    "prepublishOnly": "yarn build",
-    "start": "parcel start examples/src/index.html --out-dir examples/dist --open",
-    "build-example": "parcel build examples/src/index.html --out-dir examples/dist --public-url ./",
-    "build": "parcel build src/index.jsx --global react-gradient-container",
+    "clean": "rm -rf examples/dist",
+    "start": "parcel watch src/index.jsx",
     "deploy": "gh-pages -d examples/dist",
-    "publish-demo": "yarn clean-example && yarn build-example && yarn deploy",
+    "publish-demo": "yarn clean && yarn build-demo && yarn deploy",
+    "prepublishOnly": "yarn clean && yarn build-demo && yarn build",
+    "build": "parcel build src/index.jsx --global react-gradient-container",
+    "start-demo": "parcel examples/src/index.html --out-dir examples/dist --open",
+    "build-demo": "parcel build examples/src/index.html --out-dir examples/dist --public-url ./",
     "generate-source-map": "source-map-explorer --html ./dist/index.js ./dist/index.map > source-map.html && open source-map.html"
   },
   "peerDependencies": {
@@ -27,8 +28,6 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-transform-regenerator": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^9.0.0",
     "babel-plugin-lodash": "^3.3.4",
     "eslint": "^5.5.0",
@@ -37,14 +36,17 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "gh-pages": "^2.0.0",
-    "react-dom": "^16.5.1"
+    "react-markdown": "^3.6.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0",
+    "color-convert": "^1.9.3",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
+    "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
+    "react-spring": "^5.7.2",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.5",
     "redux-saga": "^0.16.0",
