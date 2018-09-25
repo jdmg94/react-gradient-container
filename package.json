@@ -1,6 +1,6 @@
 {
   "name": "react-gradient-container",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "a Multipurpose presentational gradient container",
   "main": "dist/index.js",
   "homepage": "https://jdmg94.github.io/react-gradient-container",
