@@ -5,7 +5,19 @@
   "main": "dist/index.js",
   "homepage": "https://jdmg94.github.io/react-gradient-container",
   "repository": "https://github.com/jdmg94/react-gradient-container",
-  "author": "Jose Munoz",
+  "author": {
+    "name": "Jose Munoz",
+    "email": "jdmg93@gmail.com",
+    "url": "https://github.com/jdmg94"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "gradient",
+    "redux-sagas",
+    "styled-components",
+    "presentational component"
+  ],
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -26,6 +38,7 @@
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0-0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-modules-umd": "^7.1.0",
     "@babel/plugin-transform-regenerator": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",
     "babel-eslint": "^9.0.0",
